@@ -1,2 +1,2 @@
 # TigerPulse
-Enable remote patient monitoring with high efficiency and accessibility at its core
+Enable remote patient monitoring with high availability and accessibility at its core
