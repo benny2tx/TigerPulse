@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { Link } from 'expo-router';
 import { LogIn } from 'lucide-react-native';
 import { useAuthStore } from '@/store/auth';
 
 export default function LoginScreen() {
-    const login = useAuthStore((state) => state.login);
+    const { login, isLoading, error } = useAuthStore();
 
     return (
         <View style={styles.container}>
@@ -15,11 +15,22 @@ export default function LoginScreen() {
                         <Text style={styles.title}>Welcome to TigerPulse</Text>
                     </View>
 
+                    {error && (
+                        <View style={styles.errorContainer}>
+                            <Text style={styles.errorText}>{error}</Text>
+                        </View>
+                    )}
+
                     <TouchableOpacity
-                        style={styles.button}
+                        style={[styles.button, isLoading && styles.buttonDisabled]}
                         onPress={login}
+                        disabled={isLoading}
                     >
-                        <Text style={styles.buttonText}>Continue with Auth0</Text>
+                        {isLoading ? (
+                            <ActivityIndicator color="#fff" />
+                        ) : (
+                            <Text style={styles.buttonText}>Continue with Auth0</Text>
+                        )}
                     </TouchableOpacity>
 
                     <View style={styles.footer}>
@@ -72,12 +83,27 @@ const styles = StyleSheet.create({
         color: '#666',
         textAlign: 'center',
     },
+    errorContainer: {
+        backgroundColor: 'rgba(255, 59, 48, 0.9)',
+        padding: 16,
+        borderRadius: 12,
+        marginBottom: 16,
+    },
+    errorText: {
+        color: '#fff',
+        fontSize: 14,
+        fontFamily: 'Inter-Medium',
+        textAlign: 'center',
+    },
     button: {
         backgroundColor: '#007AFF',
         padding: 16,
         borderRadius: 12,
         alignItems: 'center',
         marginBottom: 16,
+    },
+    buttonDisabled: {
+        opacity: 0.7,
     },
     buttonText: {
         color: '#fff',

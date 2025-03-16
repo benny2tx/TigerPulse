@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Settings, Bell, Shield, LogOut } from 'lucide-react-native';
-import { useAuthStore } from '@/store/auth';
+import { useAuthStore } from '../../store/auth';
 
 export default function ProfileScreen() {
     const logout = useAuthStore((state) => state.logout);

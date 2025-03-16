@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Chrome as Home, History, MessageSquare, User } from 'lucide-react-native';
-import { useAuthStore } from '@/store/auth';
+import { useAuthStore } from '../../store/auth';
 import { Redirect } from 'expo-router';
 
 export default function AppLayout() {

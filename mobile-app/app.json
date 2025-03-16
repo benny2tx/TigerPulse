@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "tigerpulse-mobile-app",
-    "slug": "tigerpulse-mobile-app",
+    "name": "tigerpulse-app",
+    "slug": "tigerpulse-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "com.tigerpulse.app",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.tigerpulse.mobileapp",
+      "bundleIdentifier": "com.tigerpulse.app",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.tigerpulse.mobileapp"
+      "package": "com.tigerpulse.app"
     },
     "web": {
       "bundler": "metro",
